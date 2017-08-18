@@ -14,59 +14,190 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+            <TextView
+                android:visibility="gone"
+                android:text="APP Secret:"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
             <EditText
+                android:visibility="gone"
                 android:id="@+id/appsecret"
                 android:hint="APP Secret"
                 android:text="wBH4YJUYIa6a"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
+            <TextView
+                android:visibility="gone"
+                android:text="APP Key:"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
             <EditText
+                android:visibility="gone"
                 android:id="@+id/appkey"
                 android:text="uwd1c0sxdoyn1"
                 android:hint="APP Key"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
+            <TextView
+                android:visibility="gone"
+                android:text="noneStr:"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
             <EditText
+                android:visibility="gone"
                 android:id="@+id/noneStr"
                 android:hint="随机字符串"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
+            <TextView
+                android:visibility="gone"
+                android:text="timestamp:"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
             <EditText
+                android:visibility="gone"
                 android:id="@+id/timestamp"
                 android:hint="时间戳"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
+            <TextView
+                android:text="version:"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
             <EditText
                 android:id="@+id/version"
                 android:hint="APP version"
                 android:text="1.0.23"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
+            <TextView
+                android:text="memberid:"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
             <EditText
                 android:id="@+id/userId"
                 android:hint="用户ID"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
-            <EditText
+            <TextView
+                android:text="productId:"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <com.facebook.drawee.view.SimpleDraweeView
+                    android:id="@+id/productImage"
+                    app:failureImage="@mipmap/ic_launcher"
+                    android:layout_width="100px"
+                    android:layout_height="100px"/>
+            <TextView
                 android:id="@+id/productId"
                 android:hint="商品ID"
+                android:textSize="18sp"
+                android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
+            <TextView
+                android:text=">"
+                android:padding="5dp"
+                android:textAlignment="center"
+                android:id="@+id/selectproduct"
+                android:layout_width="35dp"
+                android:textSize="20sp"
+                android:layout_height="wrap_content"/>
+            </LinearLayout>
+            <TextView
+                android:text="num:"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <EditText
+                android:id="@+id/num"
+                android:hint="数量"
+                android:text="1"
+                android:inputType="number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:text="addressId:"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
             <EditText
                 android:id="@+id/addressId"
                 android:hint="地址ID"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
-            <EditText
+            <TextView
+                android:text="specifId:"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <TextView
+                android:layout_weight="1"
                 android:id="@+id/specifId"
+                android:textSize="16sp"
+                android:textColor="@android:color/holo_blue_dark"
                 android:hint="规格ID"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
+                <TextView
+                    android:text=">"
+                    android:padding="5dp"
+                    android:textAlignment="center"
+                    android:id="@+id/selectSpecif"
+                    android:layout_width="35dp"
+                    android:textSize="20sp"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+            <TextView
+                android:text="payMethod:"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
             <EditText
                 android:id="@+id/payMethod"
                 android:hint="支付方式:2 微信 ， 3 支付宝"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
+            <TextView
+                android:text="pledgeMethod:"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioGroup
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+            <RadioButton
+                android:id="@+id/pledgeMethod_xiaojinku_2"
+                android:text="小金库支付"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+                <RadioButton
+                    android:id="@+id/pledgeMethod_yue_3"
+                    android:text="余额支付"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                </RadioGroup>
+            </LinearLayout>
+            <TextView
+                android:text="runTime:"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <EditText
+                android:id="@+id/time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="闹钟时间"
+                android:ems="10"
+                android:inputType="time"/>
 
             <LinearLayout
                 android:orientation="horizontal"
@@ -75,9 +206,28 @@
 
                 <Button
                     android:id="@+id/post"
-                    android:text="Post"
+                    android:text="测试"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
+
+                <Button
+                    android:id="@+id/run"
+                    android:text="设置试用抢购闹钟"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <Button
+                    android:id="@+id/save"
+                    android:text="保存配置"
+                    android:visibility="visible"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <Button
+                    android:id="@+id/gotoJob"
+                    android:text="Goto Job"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
 
             </LinearLayout>
 

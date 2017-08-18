@@ -1,5 +1,7 @@
 package com.jxd.olartifact;
 
+import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -79,9 +81,9 @@ import retrofit2.http.POST;
         @POST("/mobile/search/cleanSearchRecord")
         public abstract Call<ResultDO> cleanSearchRecord(@Field("memberId") long paramLong);
 
-//        @FormUrlEncoded
-//        @POST("/mobile/collect/collects")
-//        public abstract Call<ResultDO<List<Collect>>> collects(@Field("memberId") long paramLong, @Field("type") int paramInt);
+        @FormUrlEncoded
+        @POST("/mobile/collect/collects")
+        public abstract Call<ResultDO<List<Collect>>> collects(@Field("memberId") long paramLong, @Field("type") int paramInt);
 
         @FormUrlEncoded
         @POST("/mobile/order/confirmGet")
@@ -231,10 +233,10 @@ import retrofit2.http.POST;
         @POST("/mobile/limitBuy/getMillisTime")
         public abstract Call<ResultDO> getMillisTime(@Field("startTime") String paramString1, @Field("endTime") String paramString2);
 
-//        @FormUrlEncoded
-//        @POST("/mobile/product/getNormal")
-//        public abstract Call<ResultDO<ProductNormal>> getNormal(@Field("productId") long paramLong1, @Field("memberId") long paramLong2, @Field("uutype") int paramInt, @Field("valueIds") String paramString);
-//
+        @FormUrlEncoded
+        @POST("/mobile/product/getNormal")
+        public abstract Call<ResultDO<ProductNormal>> getNormal(@Field("productId") long productId , @Field("memberId") long memberId, @Field("uutype") int uutype, @Field("valueIds") String valueIds);
+
 //        @FormUrlEncoded
 //        @POST("/mobile/specialLocal/getOneSpecialLocalCityData")
 //        public abstract Call<ResultDO<IndexLand>> getOneSpecialLocalCityData(@Field("cityId") Integer paramInteger);
@@ -371,9 +373,9 @@ import retrofit2.http.POST;
 //        @POST("/mobile/hotselect/order/payExpressFee")
 //        public abstract Call<ResultDO<PayInfo>> payExpressFee(@Field("orderId") long paramLong, @Field("payMethod") Integer paramInteger, @Field("payPassword") String paramString);
 //
-//        @FormUrlEncoded
-//        @POST("/mobile/product/productDetail")
-//        public abstract Call<ResultDO<Product>> productDetail(@Field("productId") long paramLong1, @Field("memberId") long paramLong2, @Field("uutype") int paramInt);
+        @FormUrlEncoded
+        @POST("/mobile/product/productDetail")
+        public abstract Call<ResultDO<Product>> productDetail(@Field("productId") long productId, @Field("memberId") long memberId, @Field("uutype") int uutype);
 
 //        @FormUrlEncoded
 //        @POST("/mobile/hotselect/product/productList")
