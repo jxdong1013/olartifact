@@ -28,6 +28,7 @@ import retrofit2.Response;
 import static android.icu.lang.UCharacter.GraphemeClusterBreak.L;
 import static com.jxd.olartifact.R.id.productId;
 import static com.jxd.olartifact.R.id.recyclerView;
+import static com.jxd.olartifact.R.id.swipeRefreshLayout;
 import static com.jxd.olartifact.R.id.userId;
 
 public class SpecifacationActivity extends AppCompatActivity implements BaseQuickAdapter.OnItemClickListener{
@@ -188,6 +189,7 @@ public class SpecifacationActivity extends AppCompatActivity implements BaseQuic
 
             @Override
             public void onFailure(Call<ResultDO<ProductNormal>> call, Throwable t) {
+
                 Toast.makeText(SpecifacationActivity.this, "error",Toast.LENGTH_SHORT).show();
             }
         });

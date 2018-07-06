@@ -23,7 +23,7 @@ public class Product    implements Parcelable
                 return new Product[paramAnonymousInt];
             }
         };
-        private double appPrice;
+        private String appPrice;
         private String area;
         private String brandCode;
         private int buyMinCount;
@@ -41,12 +41,12 @@ public class Product    implements Parcelable
         private int isCollect;
         private boolean isSelected;
         private int isShowScore;
-        private int limitCount;
-        private int listId;
+        //private int limitCount;
+        //private int listId;
         private String logo;
-        private double marketPrice;
+        private String marketPrice;
         private long memberId;
-        private int minCount;
+        //private int minCount;
         private String name;
         private String normal;
         private List<NormalsBean> normals;
@@ -54,13 +54,13 @@ public class Product    implements Parcelable
         private String percent;
         private int plusCount;
         private String plusPercent;
-        private double price;
+        private String price;
         private long productId;
         private String productImage;
         private String productName;
-        private double rateFee;
-        private double salePrice;
-        private int score;
+        //private double rateFee;
+        private String salePrice;
+        //private int score;
         private int sellerId;
         private String sellerLogo;
         private String sellerName;
@@ -72,7 +72,7 @@ public class Product    implements Parcelable
         private List<String> tags;
         private String time;
         private int type;
-        private double unitPrice;
+        private String unitPrice;
         private int upAndDownStatus;
 
         public Product() {}
@@ -89,11 +89,11 @@ public class Product    implements Parcelable
             this.time = paramParcel.readString();
             this.image = paramParcel.readString();
             this.productName = paramParcel.readString();
-            this.salePrice = paramParcel.readDouble();
-            this.appPrice = paramParcel.readDouble();
-            this.marketPrice = paramParcel.readDouble();
-            this.score = paramParcel.readInt();
-            this.rateFee = paramParcel.readDouble();
+            this.salePrice = paramParcel.readString();
+            this.appPrice = paramParcel.readString();
+            this.marketPrice = paramParcel.readString();
+//            this.score = paramParcel.readInt();
+//            this.rateFee = paramParcel.readDouble();
             this.expressFee = paramParcel.readInt();
             this.soldCount = paramParcel.readInt();
             this.area = paramParcel.readString();
@@ -111,8 +111,8 @@ public class Product    implements Parcelable
             this.images = paramParcel.createStringArrayList();
             this.tags = paramParcel.createStringArrayList();
             this.comments = paramParcel.createTypedArrayList(Comment.CREATOR);
-            this.price = paramParcel.readDouble();
-            this.limitCount = paramParcel.readInt();
+            this.price = paramParcel.readString();
+            //this.limitCount = paramParcel.readInt();
             this.plusCount = paramParcel.readInt();
             this.productImage = paramParcel.readString();
             this.plusPercent = paramParcel.readString();
@@ -122,16 +122,16 @@ public class Product    implements Parcelable
             this.num = paramParcel.readInt();
             this.normal = paramParcel.readString();
             this.costPrice = paramParcel.readString();
-            this.minCount = paramParcel.readInt();
+            //this.minCount = paramParcel.readInt();
             this.dealAmount = paramParcel.readString();
             this.buyMinCount = paramParcel.readInt();
             this.name = paramParcel.readString();
-            this.unitPrice = paramParcel.readDouble();
+            this.unitPrice = paramParcel.readString();
             if (paramParcel.readByte() != 0) {}
             for (boolean bool = true;; bool = false)
             {
                 this.isSelected = bool;
-                this.listId = paramParcel.readInt();
+                //this.listId = paramParcel.readInt();
                 return;
             }
         }
@@ -141,7 +141,7 @@ public class Product    implements Parcelable
             return 0;
         }
 
-        public double getAppPrice()
+        public String getAppPrice()
         {
             return this.appPrice;
         }
@@ -226,22 +226,22 @@ public class Product    implements Parcelable
             return this.isShowScore;
         }
 
-        public int getLimitCount()
-        {
-            return this.limitCount;
-        }
-
-        public int getListId()
-        {
-            return this.listId;
-        }
+//        public int getLimitCount()
+//        {
+//            return this.limitCount;
+//        }
+//
+//        public int getListId()
+//        {
+//            return this.listId;
+//        }
 
         public String getLogo()
         {
             return this.logo;
         }
 
-        public double getMarketPrice()
+        public String getMarketPrice()
         {
             return this.marketPrice;
         }
@@ -251,10 +251,10 @@ public class Product    implements Parcelable
             return this.memberId;
         }
 
-        public int getMinCount()
-        {
-            return this.minCount;
-        }
+//        public int getMinCount()
+//        {
+//            return this.minCount;
+//        }
 
         public String getName()
         {
@@ -291,7 +291,7 @@ public class Product    implements Parcelable
             return this.plusPercent;
         }
 
-        public double getPrice()
+        public String getPrice()
         {
             return this.price;
         }
@@ -311,20 +311,20 @@ public class Product    implements Parcelable
             return this.productName;
         }
 
-        public double getRateFee()
-        {
-            return this.rateFee;
-        }
+//        public double getRateFee()
+//        {
+//            return this.rateFee;
+//        }
 
-        public double getSalePrice()
+        public String  getSalePrice()
         {
             return this.salePrice;
         }
 
-        public int getScore()
-        {
-            return this.score;
-        }
+//        public int getScore()
+//        {
+//            return this.score;
+//        }
 
         public int getSellerId()
         {
@@ -381,7 +381,7 @@ public class Product    implements Parcelable
             return this.type;
         }
 
-        public double getUnitPrice()
+        public String getUnitPrice()
         {
             return this.unitPrice;
         }
@@ -396,7 +396,7 @@ public class Product    implements Parcelable
             return this.isSelected;
         }
 
-        public void setAppPrice(double paramDouble)
+        public void setAppPrice(String paramDouble)
         {
             this.appPrice = paramDouble;
         }
@@ -481,22 +481,22 @@ public class Product    implements Parcelable
             this.isShowScore = paramInt;
         }
 
-        public void setLimitCount(int paramInt)
-        {
-            this.limitCount = paramInt;
-        }
-
-        public void setListId(int paramInt)
-        {
-            this.listId = paramInt;
-        }
+//        public void setLimitCount(int paramInt)
+//        {
+//            this.limitCount = paramInt;
+//        }
+//
+//        public void setListId(int paramInt)
+//        {
+//            this.listId = paramInt;
+//        }
 
         public void setLogo(String paramString)
         {
             this.logo = paramString;
         }
 
-        public void setMarketPrice(double paramDouble)
+        public void setMarketPrice(String paramDouble)
         {
             this.marketPrice = paramDouble;
         }
@@ -506,10 +506,10 @@ public class Product    implements Parcelable
             this.memberId = paramLong;
         }
 
-        public void setMinCount(int paramInt)
-        {
-            this.minCount = paramInt;
-        }
+//        public void setMinCount(int paramInt)
+//        {
+//            this.minCount = paramInt;
+//        }
 
         public void setName(String paramString)
         {
@@ -546,7 +546,7 @@ public class Product    implements Parcelable
             this.plusPercent = paramString;
         }
 
-        public void setPrice(double paramDouble)
+        public void setPrice(String paramDouble)
         {
             this.price = paramDouble;
         }
@@ -566,20 +566,20 @@ public class Product    implements Parcelable
             this.productName = paramString;
         }
 
-        public void setRateFee(double paramDouble)
-        {
-            this.rateFee = paramDouble;
-        }
+//        public void setRateFee(double paramDouble)
+//        {
+//            this.rateFee = paramDouble;
+//        }
 
-        public void setSalePrice(double paramDouble)
+        public void setSalePrice(String paramDouble)
         {
             this.salePrice = paramDouble;
         }
 
-        public void setScore(int paramInt)
-        {
-            this.score = paramInt;
-        }
+//        public void setScore(int paramInt)
+//        {
+//            this.score = paramInt;
+//        }
 
         public void setSelected(boolean paramBoolean)
         {
@@ -641,7 +641,7 @@ public class Product    implements Parcelable
             this.type = paramInt;
         }
 
-        public void setUnitPrice(double paramDouble)
+        public void setUnitPrice(String paramDouble)
         {
             this.unitPrice = paramDouble;
         }
@@ -663,11 +663,11 @@ public class Product    implements Parcelable
             paramParcel.writeString(this.time);
             paramParcel.writeString(this.image);
             paramParcel.writeString(this.productName);
-            paramParcel.writeDouble(this.salePrice);
-            paramParcel.writeDouble(this.appPrice);
-            paramParcel.writeDouble(this.marketPrice);
-            paramParcel.writeInt(this.score);
-            paramParcel.writeDouble(this.rateFee);
+            paramParcel.writeString(this.salePrice);
+            paramParcel.writeString(this.appPrice);
+            paramParcel.writeString(this.marketPrice);
+//            paramParcel.writeInt(this.score);
+//            paramParcel.writeDouble(this.rateFee);
             paramParcel.writeInt(this.expressFee);
             paramParcel.writeInt(this.soldCount);
             paramParcel.writeString(this.area);
@@ -685,8 +685,8 @@ public class Product    implements Parcelable
             paramParcel.writeStringList(this.images);
             paramParcel.writeStringList(this.tags);
             paramParcel.writeTypedList(this.comments);
-            paramParcel.writeDouble(this.price);
-            paramParcel.writeInt(this.limitCount);
+            paramParcel.writeString(this.price);
+           // paramParcel.writeInt(this.limitCount);
             paramParcel.writeInt(this.plusCount);
             paramParcel.writeString(this.productImage);
             paramParcel.writeString(this.plusPercent);
@@ -696,16 +696,16 @@ public class Product    implements Parcelable
             paramParcel.writeInt(this.num);
             paramParcel.writeString(this.normal);
             paramParcel.writeString(this.costPrice);
-            paramParcel.writeInt(this.minCount);
+           // paramParcel.writeInt(this.minCount);
             paramParcel.writeString(this.dealAmount);
             paramParcel.writeInt(this.buyMinCount);
             paramParcel.writeString(this.name);
-            paramParcel.writeDouble(this.unitPrice);
+            paramParcel.writeString(this.unitPrice);
             if (this.isSelected) {}
             for (paramInt = 1;; paramInt = 0)
             {
                 paramParcel.writeByte((byte)paramInt);
-                paramParcel.writeInt(this.listId);
+                //paramParcel.writeInt(this.listId);
                 return;
             }
         }

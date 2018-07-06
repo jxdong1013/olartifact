@@ -123,11 +123,27 @@
                 android:text="addressId:"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
-            <EditText
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
                 android:id="@+id/addressId"
                 android:hint="地址ID"
+                android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
+
+            <TextView
+                android:text=">"
+                android:padding="5dp"
+                android:textAlignment="center"
+                android:id="@+id/selectAddress"
+                android:layout_width="35dp"
+                android:textSize="20sp"
+                android:layout_height="wrap_content"/>
+            </LinearLayout>
             <TextView
                 android:text="specifId:"
                 android:layout_width="wrap_content"

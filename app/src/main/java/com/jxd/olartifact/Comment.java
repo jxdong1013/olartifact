@@ -43,7 +43,7 @@ public class Comment  implements Parcelable
         private String productImage;
         private String productName;
         private String productPrice;
-        private float score;
+        //private float score;
         private int status;
         private String time;
         private String title;
@@ -68,7 +68,7 @@ public class Comment  implements Parcelable
             this.memberLogo = paramParcel.readString();
             this.content = paramParcel.readString();
             this.time = paramParcel.readString();
-            this.score = paramParcel.readFloat();
+//            this.score = paramParcel.readFloat();
             this.commentCount = paramParcel.readInt();
             this.goodCount = paramParcel.readInt();
             this.isGood = paramParcel.readInt();
@@ -185,10 +185,10 @@ public class Comment  implements Parcelable
             return this.productPrice;
         }
 
-        public float getScore()
-        {
-            return this.score;
-        }
+//        public float getScore()
+//        {
+//            return this.score;
+//        }
 
         public int getStatus()
         {
@@ -310,10 +310,10 @@ public class Comment  implements Parcelable
             this.productPrice = paramString;
         }
 
-        public void setScore(float paramFloat)
-        {
-            this.score = paramFloat;
-        }
+//        public void setScore(float paramFloat)
+//        {
+//            this.score = paramFloat;
+//        }
 
         public void setStatus(int paramInt)
         {
@@ -352,7 +352,7 @@ public class Comment  implements Parcelable
             paramParcel.writeString(this.memberLogo);
             paramParcel.writeString(this.content);
             paramParcel.writeString(this.time);
-            paramParcel.writeFloat(this.score);
+//            paramParcel.writeFloat(this.score);
             paramParcel.writeInt(this.commentCount);
             paramParcel.writeInt(this.goodCount);
             paramParcel.writeInt(this.isGood);

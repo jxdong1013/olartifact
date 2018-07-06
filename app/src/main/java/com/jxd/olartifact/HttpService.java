@@ -333,10 +333,10 @@ import retrofit2.http.POST;
 //        @POST("/mobile/index/indexData")
 //        public abstract Call<ResultDO<Index>> indexData(@Field("memberId") Long paramLong);
 //
-//        @FormUrlEncoded
-//        @POST("/mobile/address/memberAddresses")
-//        public abstract Call<ResultDO<List<Address>>> memberAddresses(@Field("memberId") long paramLong);
-//
+        @FormUrlEncoded
+        @POST("/mobile/address/memberAddresses")
+        public abstract Call<ResultDO<List<Address>>> memberAddresses(@Field("memberId") long memberId);
+
 //        @FormUrlEncoded
 //        @POST("/mobile/freeUse/memberFreeUseRecord")
 //        public abstract Call<ResultDO<List<FreeRecord>>> memberFreeUseRecord(@Field("memberId") long paramLong, @Field("page") Integer paramInteger1, @Field("rows") Integer paramInteger2);

@@ -13,6 +13,7 @@ public class RequestModel {
     private  Long memberid;
     private  Integer num;
     private  Integer addressid;
+    private String address;
     private  Integer normalId;
     private String normalName;
     private  Integer payMethod;
@@ -160,5 +161,13 @@ public class RequestModel {
 
     public void setRunTime(String runTime) {
         this.runTime = runTime;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 }

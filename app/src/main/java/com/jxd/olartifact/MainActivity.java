@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.num)
      EditText num;
     @BindView(R.id.addressId)
-    EditText addressid;
+    TextView addressid;
     @BindView(R.id.appkey)
     EditText appkey;
     @BindView(R.id.appsecret)
@@ -114,7 +114,8 @@ public class MainActivity extends AppCompatActivity {
         appkey.setText("uwd1c0sxdoyn1");
         appsecret.setText("wBH4YJUYIa6a");
         userid.setText("545142");
-        addressid.setText("52962");
+        addressid.setText("");
+        addressid.setTag(null);
         productid.setText("");
         productid.setTag(0);
         time.setText("10:00:00");
@@ -157,7 +158,8 @@ public class MainActivity extends AppCompatActivity {
         specid.setText( requestModel.getNormalName() == null ? "" : requestModel.getNormalName() );
         specid.setTag( requestModel.getNormalId() );
 
-        addressid.setText( valueOf( requestModel.getAddressid() ));
+        addressid.setText( valueOf( requestModel.getAddress() ));
+        addressid.setTag( requestModel.getAddressid() );
         appkey.setText( requestModel.getAppkey() );
         appsecret.setText( requestModel.getAppSecret() );
         version.setText( requestModel.getVersion() );
@@ -206,15 +208,18 @@ public class MainActivity extends AppCompatActivity {
             speid = Integer.valueOf(specid.getTag().toString());
         }
 
-
         long uid = Long.valueOf(userid.getText().toString());
-        int aid = Integer.valueOf(addressid.getText().toString());
+        int aid=0;
+        try {
+            aid = Integer.valueOf(addressid.getTag().toString());
+        }catch (Exception ex){
+            Toast.makeText(this,"请设置收货地址",Toast.LENGTH_LONG).show();
+            return;
+        }
+        String address = addressid.getText().toString();
         int pmethod = Integer.valueOf(payMethod.getText().toString());
         String paypassword = null;
         Integer pledgeMethod = rdb_yuer_3.isChecked()? 3 : rdb_jk_2.isChecked()?2: null;
-
-
-
 
         int number = Integer.valueOf(num.getText().toString());
 
@@ -244,7 +249,8 @@ public class MainActivity extends AppCompatActivity {
         Integer pledgeMethod = rdb_jk_2.isChecked()? 2: rdb_yuer_3.isChecked()?3:null;
 
         requestModel.setPledgeMethod(pledgeMethod);
-        requestModel.setAddressid( Integer.valueOf( addressid.getText().toString() ) );
+        requestModel.setAddressid( Integer.valueOf( addressid.getTag().toString() ) );
+        requestModel.setAddress( addressid.getText().toString() );
         requestModel.setAppkey(appkey.getText().toString());
         requestModel.setMemberid( Long.valueOf( userid.getText().toString() ) );
         requestModel.setMemo( memo );
@@ -369,7 +375,8 @@ public class MainActivity extends AppCompatActivity {
         }
 
         mode.setMemberid( Long.valueOf( userid.getText().toString() ));
-        mode.setAddressid( Integer.valueOf( addressid.getText().toString() ) );
+        mode.setAddressid( Integer.valueOf( addressid.getTag().toString() ) );
+        mode.setAddress(addressid.getText().toString());
         mode.setMemo(memo);
         mode.setNum( Integer.valueOf( num.getText().toString() ));
         if(specid.getTag()==null || specid.getTag().toString().length()<1){
@@ -420,6 +427,21 @@ public class MainActivity extends AppCompatActivity {
         startActivityForResult(intent ,101);
     }
 
+    @OnClick(R.id.selectAddress)
+    public void selectAddress(View v){
+        Long uid = 0L;
+        try {
+            uid=Long.parseLong(userid.getText().toString());
+        }catch (Exception ex){
+            Toast.makeText(MainActivity.this, "请输入正确的用户Id",Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        Intent intent =new Intent(this,AddressListActivity.class);
+        intent.putExtra("userid", uid );
+        startActivityForResult(intent ,102);
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -428,9 +450,14 @@ public class MainActivity extends AppCompatActivity {
             productid.setTag( data.getLongExtra("productid",0) );
             productImage.setTag(data.getStringExtra("productimage"));
             productImage.setImageURI(data.getStringExtra("productimage"));
+            specid.setText("");
+            specid.setTag(null);
         }else if(resultCode==RESULT_OK && requestCode== 101){
             specid.setText( data.getStringExtra("spname") );
             specid.setTag( data.getStringExtra("spid") );
+        }else if(resultCode==RESULT_OK && requestCode== 102){
+            addressid.setText( data.getStringExtra("address") );
+            addressid.setTag( data.getIntExtra("addressid" , 0) );
         }
     }
 
